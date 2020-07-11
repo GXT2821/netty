@@ -14,3 +14,10 @@
 * 3、Position 位置，下一个要被读或写的元素的索引，每次读写缓冲区数据时都会改变该值，为下一次读写准备  
 * 4、Mark 标记  
 
+**关于Buffer 和 Channel 的注意事项和细节**  
+* 1、ByteBuffer支持类型化的 put 和 get， put 放入的是什么数据类型，get就应该使用相应的数据类型取出，否则有可能有 BufferUnderflowException 异常
+* 2、可以将一个普通的 Buffer 转成只读 Buffer  
+* 3、NIO 提供了 MappedByteBuffer，可以让文件直接在内存（堆外内存）中进行修改，而如何同步到文件中由 NIO 来完成  
+* 4、NIO 支持通过多个 Buffer 完成读写操作，即 Scattering 和 Gatering  
+
+
